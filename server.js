@@ -4,7 +4,9 @@ var mp = require('mongodb-promise');
 var app = express();
 var mydba = require("./database.js");
 var url = "mongodb://localhost:27017/";
-var bodyParser = require('body-parser')
+var bodyParser = require('body-parser');
+var apiKey = "JVOTXPM7M3L30BQ1YGCI21FOKip045gyG6gv3MavLorA3J1U8";
+var sharedSecret = "UORoW+yn5kCQJ6{UE}w8}{SuZ3Yh1wd38Cbw1GGh";
 
 app.use(bodyParser.json());
 // respond with "hello world" when a GET request is made to the homepage
@@ -55,8 +57,10 @@ app.post('/sale', function(req, res){
 	var data = req.body;
 	data.datetime = new Date();
 	data.store = "Biachuello";
-	data.storeImage = "https://image.telefone0800.net.br/wp-content/uploads/2016/07/telefone-0800-loja-riachuelo.jpg";
-mp.MongoClient.connect(url)
+	data.storeImage = "https://drive.google.com/file/d/1gpY3iWGc1LPe5cvrd1VDNnZCYfgFvWFR/view";
+    var callId = data.callId;
+
+    mp.MongoClient.connect(url)
     .then(function(db){
             return db.collection('sales')
                 .then(function(col) {
@@ -110,4 +114,5 @@ app.get('/add/', function(req, res) {
 	res.send("OK");
    
 });
+
 

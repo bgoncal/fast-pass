@@ -22,6 +22,7 @@
     "express": "^4.16.2",
     "mongodb": "^3.0.2",
     "mongodb-promise": "0.0.4",
-    "promise": "^8.0.1"
+    "promise": "^8.0.1",
+    "sha256": "^0.2.0"
   }
 }
